@@ -1,12 +1,24 @@
-version: '3.8'
-
+version: '3'
 services:
-  postgres:
-    container_name: store
-    image: postgres
+  ecommerce-app:
+    build:
+      context: .
+    ports:
+      - 5432:5432
+    volumes:
+      - ./target:/app/target
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=admin123
       - POSTGRES_DB=store
-    ports:
-      - 5432:5432
+
+#services:
+#  postgres:
+#    container_name: test-store
+#    image: postgres
+#    environment:
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=admin123
+#      - POSTGRES_DB=store
+#    ports:
+#      - 5432:5432

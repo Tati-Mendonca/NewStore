@@ -1,9 +1,13 @@
+# Etapa de Execução
 FROM openjdk:17-jdk
 
-COPY target/ecommerce-project-springboot-0.0.1-SNAPSHOT.jar /app/store.jar
+WORKDIR /app
 
-EXPOSE 8081
+COPY ./target/ecommerce-project-springboot-0.0.1-SNAPSHOT.jar /app/test-store.jar
 
-CMD ["java", "-jar", "/app/jobis.jar"]
+
+CMD ["java", "-jar", "/app/test-store.jar"]
+
+EXPOSE 8080
 
 LABEL authors="Tatiane Mendonça"
