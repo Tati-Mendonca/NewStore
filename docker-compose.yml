@@ -1,4 +1,3 @@
-version: '3'
 services:
   ecommerce-app:
     build:
@@ -7,10 +6,13 @@ services:
       - 5432:5432
     volumes:
       - ./target:/app/target
+    working_dir: /app
+    command: mvn clean install -DskipTests
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=admin123
-      - POSTGRES_DB=store
+      - DATABASE_USERNAME=store
+      - DATABASE_PASSWORD=5FQxvrDR4KSm3v7nWvCmisS476O4kYYO
+
+
 
 #services:
 #  postgres:
